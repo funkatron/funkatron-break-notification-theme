@@ -1,0 +1,15 @@
+{
+  "author": {
+    "name" : "Edward Finkler",
+    "email" : "coj@funkatron.com",
+    "url" : "https://funkatron.com"
+  },
+  "comments" : "",
+  "rootDocument" : "index.html",
+  "type" : "html5",
+  "created" : "2016-02-06",
+  "identifier" : "Text",
+  "version" : 1,
+  "modified" : "2016-02-06",
+  "name" : "Text"
+}

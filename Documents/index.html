@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text</title>
+
+    <style type="text/css">
+        body {
+            background-color: rgba(0, 0, 0, 0);
+            color: lightslategray;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #text {
+            position: relative;
+            padding: 10vh 5vw;
+            margin: 10vh auto;
+            max-height: 80vh;
+            max-width: 1024px;
+
+            font-family: Iosevka, "Iosevka Fixed", "Droid Sans Mono Dotted", Inconsolata, Monaco, Consolas, "Lucida Console", monospace;
+            font-weight: 400;
+            font-size: 1.2rem;;
+            text-align: left;
+            color: #111111;
+            background-color: lightslategray;
+            border: #111 1px solid;
+            opacity: 1;
+            animation: fadein 2s;
+            -moz-animation: fadein 2s; /* Firefox */
+            -webkit-animation: fadein 2s; /* Safari and Chrome */
+            -o-animation: fadein 2s; /* Opera */
+
+        }
+
+        /* animate the initial appearance of the text */
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+    </style>
+
+    <script type="text/javascript"
+            src="https://simonwaldherr.github.io/micromarkdown.js/dist/micromarkdown.min.js"></script>
+    <script type="text/javascript">
+        let content_need_md = `# What do you *need* to accomplish *today*?
+
+1. Practice **presence**
+2. **Love** yourself
+3. Do **your best**
+
+### *hint: you always do your best at any given moment*
+
+**That's it!**
+`
+
+        let content_remember_md = `# Remember that you always do your best.
+
+## This is part of being **intentful** in your life.
+
+### **Intend** to do what will bring you closer to peace.`;
+
+        let content = [
+            content_remember_md,
+            content_need_md
+        ]
+
+        window.addEventListener('load', (event) => {
+
+            // choose an item from the content array at random
+            let random_index = Math.floor(Math.random() * content.length);
+            let random_content = content[random_index];
+
+            document.getElementById('text').innerHTML = micromarkdown.parse(random_content);
+            console.log('page is fully loaded', event);
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div id="text">
+    # Remember that you always do your best.
+
+    ## This is part of being **intentful** in your life.
+
+    ### **Intend** to do what will bring you closer to peace.
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
+
