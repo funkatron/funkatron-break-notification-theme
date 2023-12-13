@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Text</title>
 
-    <style type="text/css">
-        body {
-            background-color: rgba(0, 0, 0, 0);
-            color: lightslategray;
+    <style>
+        html, body {
+            background-color: lightslategray;
+            color: #111111;
             padding: 0;
             margin: 0;
             overflow: hidden;
+            height: 100%;
         }
 
-        #text {
-            position: relative;
-            padding: 10vh 5vw;
-            margin: 10vh auto;
-            max-height: 80vh;
-            max-width: 1024px;
+        body {
+            display: flex; /* Use flexbox to manage layout */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+        }
 
-            font-family: Iosevka, "Iosevka Fixed", "Droid Sans Mono Dotted", Inconsolata, Monaco, Consolas, "Lucida Console", monospace;
-            font-weight: 400;
-            font-size: 1.2rem;;
-            text-align: left;
-            color: #111111;
+        #text-container {
+            width: 100%; /* Fill the full width of the parent */
+            height: 100%; /* Fill the full height of the parent */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            overflow: auto; /* Add scroll only when necessary */
+
             background-color: lightslategray;
-            border: #111 1px solid;
-            opacity: 1;
+
+            /* CSS animations for fade-in effect */
             animation: fadein 2s;
             -moz-animation: fadein 2s; /* Firefox */
             -webkit-animation: fadein 2s; /* Safari and Chrome */
             -o-animation: fadein 2s; /* Opera */
-
+            opacity: 1;
         }
 
-        /* animate the initial appearance of the text */
+        #text {
+            font-family: Iosevka, "Iosevka Fixed", "Droid Sans Mono Dotted", Inconsolata, Monaco, Consolas, "Lucida Console", monospace;
+            font-weight: 400;
+            font-size: 1.2rem;
+            text-align: left;
+            color: #111111;
+        }
+
+        /* Keyframes for fade-in animation */
         @keyframes fadein {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to   { opacity: 1; }
         }
 
     </style>
@@ -55,7 +62,7 @@
 2. **Love** yourself
 3. Do **your best**
 
-### *hint: you always do your best at any given moment*
+## *hint: you always do your best at any given moment*
 
 **That's it!**
 `
@@ -64,7 +71,7 @@
 
 ## This is part of being **intentful** in your life.
 
-### **Intend** to do what will bring you closer to peace.`;
+## **Intend** to do what will bring you closer to peace.`;
 
         let content = [
             content_remember_md,
@@ -79,6 +86,8 @@
 
             document.getElementById('text').innerHTML = micromarkdown.parse(random_content);
             console.log('page is fully loaded', event);
+
+            start();
         });
     </script>
 
@@ -86,12 +95,14 @@
 
 <body>
 
-<div id="text">
-    # Remember that you always do your best.
+<div id="text-container">
+    <div id="text">
+        # Remember that you always do your best.
 
-    ## This is part of being **intentful** in your life.
+        ## This is part of being **intentful** in your life.
 
-    ### **Intend** to do what will bring you closer to peace.
+        ## __Intend__ to do what will bring you closer to peace.
+    </div>
 </div>
 
 <script>
